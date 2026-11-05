@@ -8,7 +8,7 @@ The simulation answers three planning questions: how precisely the policy effect
 
 ## Running it
 
-Requires Python 3.9 or later. Run all commands from the repository root.
+Tested with Python 3.14, using the package versions in `requirements.txt`. Run all commands from the repository root.
 
 ```bash
 pip install -r requirements.txt
