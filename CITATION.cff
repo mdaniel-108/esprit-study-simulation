@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+type: software
+title: "ESPRIT study simulation"
+abstract: "Precision and power simulation for the ESPRIT study."
+authors:
+  - alias: mdaniel-108
+date-released: 2026-11-05
+license: MIT
+repository-code: "https://github.com/mdaniel-108/esprit-study-simulation"
