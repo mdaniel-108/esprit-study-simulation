@@ -13,6 +13,7 @@ Tested with Python 3.14, using the package versions in `requirements.txt`. Run a
 ```bash
 pip install -r requirements.txt
 python simulate.py --reps 2000 --out results   # writes results/results.csv and results/run_info.json
+python simulate.py --reps 20000 --out results/check_20000   # optional: extended check of the same configurations
 python check_equivalence.py                    # optional: compares the fast estimator with reference_slow.py
 python make_tables.py                          # writes results/results.md and results/proposal_table.md
 python make_figure.py                          # writes results/figure_power_uptake.png
@@ -34,6 +35,7 @@ results/results.md               summary tables
 results/proposal_table.md        table for Section 4.2 of the proposal
 results/figure_power_uptake.png  power by assistant uptake (Figure 2 of the proposal)
 results/run_info.json            seed, replications, number of configurations
+results/check_20000/             results.csv and run_info.json from the extended check with 20,000 replications
 ```
 
 ## Data-generating model
@@ -79,7 +81,7 @@ The 182 configurations each use 2,000 replications:
 
 Numbers are ranges over ρ = 0.3–0.5. See `results/results.md` for all tables.
 
-1. **The tests are calibrated** under the simulated model. With a true effect of zero, model-based and CR2 tests reject 4.3–6.3% of the time across scenarios, and 95% confidence intervals cover the target about 94–96% of the time in the main grid. This holds under these data-generating assumptions, not under every possible outcome or missingness model.
+1. **The tests are calibrated** under the simulated model. With a true effect of zero, model-based and CR2 tests reject 4.3–6.3% of the time across scenarios, and 95% confidence intervals cover the target about 94–96% of the time in the main grid. An extended check of all 182 configurations with 20,000 replications gives false-positive rates of 4.6–5.2% (model-based) and 4.8–5.4% (CR2) across scenarios, and rejection rates within 2.8 percentage points of the main run. This holds under these data-generating assumptions, not under every possible outcome or missingness model.
 2. **Recruitment.** The moderate scenario is 40 learners completing four or more activities. With a dropout hazard of 0.15, that is expected with 66 randomized learners but reached with 95% probability only with **76**. Allowing for uncertainty in consent, reaching the target with 95% probability from open enrollment takes about **409 enrollments** at a 20% consent rate. With a hazard of 0.30, it takes 142 randomized learners or about 737 enrollments. These figures assume that consent and completion are independent across learners.
 3. **Power depends on assistant use.** With full use, the within-learner design in the moderate scenario has power 1.00 for d = 0.5, 0.80–0.91 for d = 0.3 and 0.47–0.59 for d = 0.2. At 70% uptake the intention-to-treat effect shrinks to about 0.7 d, and power for d = 0.3 falls to 0.52–0.62 (random non-use) or 0.45–0.58 (non-use that depends on prior knowledge, policy and difficulty). At 50% uptake it falls to 0.26–0.39. **Assistant uptake is therefore as important for the study as recruitment.**
 4. **Bounded scores.** A latent effect of d = 0.3 corresponds to about 0.46 points on the 0–6 score (0.28 score SD). Power on the observed score is close to the continuous case (moderate: 0.77–0.88), and coverage of the score-scale target is about 94–96%.

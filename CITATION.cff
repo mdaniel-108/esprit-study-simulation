@@ -4,7 +4,8 @@ type: software
 title: "ESPRIT study simulation"
 abstract: "Precision and power simulation for the ESPRIT study."
 authors:
-  - name: mdaniel-108
-date-released: 2026-11-05
+  - family-names: Muepu
+    given-names: "Daniel M."
+date-released: 2026-11-06
 license: MIT
 repository-code: "https://github.com/mdaniel-108/esprit-study-simulation"
